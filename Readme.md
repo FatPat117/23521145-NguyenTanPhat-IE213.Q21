@@ -10,6 +10,7 @@
 - **Lab 1**: Thực hành MongoDB (CRUD, query, update, aggregate) với collection `employees`.
 - **Lab 2**: Thiết lập môi trường Node.js + khởi tạo backend Movie Reviews (Express + MongoDB Atlas + DAO + Controller).
 - **Lab 3**: Thiết lập định tuyến + Controller + DAO cho `review` (POST/PUT/DELETE) trong backend Movie Reviews.
+- **Lab 4**: Thiết lập frontend React (Vite) cho ứng dụng minh hoạ Movie Reviews: Bootstrap, React Router, Navbar, các component và định tuyến trang.
 
 ## Lab 1
 ### Mô tả ngắn gọn
@@ -113,5 +114,40 @@ npm run dev
   - Bài 1 (routing): 1.1 → 1.4 cho `/review`
   - Bài 2 (controller + gọi DAO): 2.1 → 2.5
   - Bài 3 (DAO + injectDB + ObjectId): 3.1 → 3.5
-- **Chưa hoàn thành**: các yêu cầu nâng cao của Lab 4 (lấy movie theo id + aggregate + ratings).
+- **Chưa hoàn thành**: (không).
+
+## Lab 4
+### Mô tả ngắn gọn
+Thiết lập môi trường frontend với **React** (template Vite) trong `lab4/frontend`, cài **Bootstrap** và **react-router-dom** (v5), xây dựng **Navbar** (react-bootstrap), các component `movies-list`, `movie`, `add-review`, `login`, và định tuyến nội bộ (`/`, `/movies`, `/movies/:id`, `/movies/:id/review`, `/login`) với trạng thái đăng nhập `user` trong `App.js`.
+
+### Cách chạy chương trình
+1) Vào thư mục frontend:
+
+```bash
+cd lab4/frontend
+npm install
+```
+
+2) Chạy ứng dụng (dev server):
+
+```bash
+npm start
+```
+
+3) Mở trình duyệt tại URL mà Vite hiển thị (thường là `http://localhost:5173`) để xem navbar **Movie Reviews** và điều hướng các trang.
+
+### Kết quả thực hiện
+- **Bài 1**: Đã tạo project frontend, script `npm start` chạy Vite; đã cài `bootstrap`, `react-bootstrap`, `react-router-dom`.
+- **Bài 2**: Đã tạo component trong `lab4/frontend/src/components/`: `movies-list.js`, `movie.js`, `add-review.js`, `login.js`; `App.js` có Navbar (logo **Movie Reviews**, link **Movies**, **Login** / **Logout User**), `useState` cho `[user, setUser]`.
+- **Bài 3**: `main.jsx` bọc `BrowserRouter`; `App.js` dùng `Switch` / `Route` với các đường dẫn theo đề, truyền `user` / `login` vào component khi cần.
+
+### Hình ảnh minh hoạ / output
+- Theo màn hình bài lab (navbar sáng, link Movies / Login).
+
+### Hoàn thành / chưa hoàn thành
+- **Đã hoàn thành**:
+  - Bài 1: khởi tạo frontend + cài package hỗ trợ UI và định tuyến
+  - Bài 2: component + Navigation bar
+  - Bài 3: định tuyến đủ 4 nhánh như đề bài
+- **Chưa hoàn thành**: (không).
 
