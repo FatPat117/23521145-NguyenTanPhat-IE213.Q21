@@ -11,6 +11,7 @@
 - **Lab 2**: Thiết lập môi trường Node.js + khởi tạo backend Movie Reviews (Express + MongoDB Atlas + DAO + Controller).
 - **Lab 3**: Thiết lập định tuyến + Controller + DAO cho `review` (POST/PUT/DELETE) trong backend Movie Reviews.
 - **Lab 4**: Thiết lập frontend React (Vite) cho ứng dụng minh hoạ Movie Reviews: Bootstrap, React Router, Navbar, các component và định tuyến trang.
+- **Lab 5**: Kết nối frontend ReactJS với backend bằng axios, xây dựng danh sách phim có tìm kiếm, trang chi tiết phim, hiển thị và thao tác review (thêm/sửa/xóa), định dạng ngày bằng moment.
 
 ## Lab 1
 ### Mô tả ngắn gọn
@@ -151,3 +152,60 @@ npm start
   - Bài 3: định tuyến đủ 4 nhánh như đề bài
 - **Chưa hoàn thành**: (không).
 
+## Lab 5
+### Mô tả ngắn gọn
+Xây dựng frontend ReactJS kết nối backend Movie Reviews bằng `axios`, triển khai danh sách phim có tìm kiếm theo `title` và `rating`, xây dựng trang chi tiết phim hiển thị nội dung và danh sách review, hỗ trợ thêm/sửa/xóa review và định dạng ngày review bằng `moment`.
+
+### Cách chạy chương trình
+1) Vào thư mục frontend:
+
+```bash
+cd lab5/frontend
+npm install
+```
+
+2) Chạy ứng dụng:
+
+```bash
+npm start
+```
+
+3) (Tuỳ chọn) cấu hình API backend qua biến môi trường:
+- Tạo file `.env` trong `lab5/frontend` với:
+  - `VITE_API_BASE_URL=http://localhost:3000/api/v1/movies`
+
+### Kết quả thực hiện
+- **Bài 1**:
+  - Đã cài `axios` cho dự án.
+  - Đã tạo `src/services/movies.js` với các hàm:
+    - `getAll()`
+    - `get(id)`
+    - `createReview(data)`
+    - `updateReview(data)`
+    - `deleteReview(id, userId)`
+    - `getRatings()`
+  - Có thêm `find(query, by, page)` để phục vụ chức năng tìm kiếm.
+- **Bài 2** (`src/components/movies-list.js`):
+  - Đã tạo state `movies`, `searchTitle`, `searchRating`, `ratings`.
+  - Đã cài `retrieveMovies()` và `retrieveRatings()` và gọi bằng `useEffect`.
+  - Đã tạo form tìm kiếm theo title và rating.
+  - Đã hiển thị danh sách phim bằng `Card` của `react-bootstrap`.
+  - Đã cài `findByTitle()` và `findByRating()`.
+- **Bài 3 & 4** (`src/components/movie.js`):
+  - Đã lấy chi tiết phim qua `getMovie()` và hiển thị thông tin phim.
+  - Đã hiển thị danh sách review dưới phần plot.
+  - Đã định dạng ngày review bằng `moment(...).format("Do MMMM YYYY")`.
+  - Đã hỗ trợ điều hướng thêm/sửa/xóa review (kết nối service review).
+- **Bổ sung thao tác review và đăng nhập**:
+  - `src/components/add-review.js`: hỗ trợ thêm review mới và sửa review cũ.
+  - `src/components/login.js`: form đăng nhập đơn giản với `name` và `id` để thao tác review.
+
+### Kiểm tra nhanh chức năng
+- Danh sách phim hiển thị tại `/movies`.
+- Tìm kiếm theo title/rating hoạt động đúng.
+- Trang chi tiết phim (`/movies/:id`) hiển thị đầy đủ thông tin và reviews.
+- Chức năng thêm/sửa/xóa review hoạt động khi đã đăng nhập.
+
+### Hoàn thành / chưa hoàn thành
+- **Đã hoàn thành**: các yêu cầu chính của đề Lab 5 (kết nối backend, danh sách phim, tìm kiếm, trang chi tiết phim, hiển thị review, format thời gian).
+- **Chưa hoàn thành**: (không).
