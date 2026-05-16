@@ -12,6 +12,7 @@
 - **Lab 3**: Thiết lập định tuyến + Controller + DAO cho `review` (POST/PUT/DELETE) trong backend Movie Reviews.
 - **Lab 4**: Thiết lập frontend React (Vite) cho ứng dụng minh hoạ Movie Reviews: Bootstrap, React Router, Navbar, các component và định tuyến trang.
 - **Lab 5**: Kết nối frontend ReactJS với backend bằng axios, xây dựng danh sách phim có tìm kiếm, trang chi tiết phim, hiển thị và thao tác review (thêm/sửa/xóa), định dạng ngày bằng moment.
+- **Lab 6**: Tiếp tục frontend ReactJS — login (redirect Home), thêm/sửa/xóa review, phân trang `getAll` và tìm kiếm có `currentPage`.
 
 ## Lab 1
 ### Mô tả ngắn gọn
@@ -208,4 +209,33 @@ npm start
 
 ### Hoàn thành / chưa hoàn thành
 - **Đã hoàn thành**: các yêu cầu chính của đề Lab 5 (kết nối backend, danh sách phim, tìm kiếm, trang chi tiết phim, hiển thị review, format thời gian).
+- **Chưa hoàn thành**: (không).
+
+## Lab 6
+### Mô tả ngắn gọn
+Tiếp tục xây dựng frontend Movie Reviews: đăng nhập để thao tác review của chính mình, form thêm/sửa review, xóa review trên trang chi tiết phim, phân trang danh sách phim và tìm kiếm theo trang.
+
+### Cách chạy chương trình
+1) Chạy backend (ví dụ lab3):
+
+```bash
+cd lab3
+npm run dev
+```
+
+2) Chạy frontend:
+
+```bash
+cd lab6/frontend
+npm install
+npm start
+```
+
+### Kết quả thực hiện
+- **Bài 1**: `login.js`, `add-review.js` (thêm + sửa review), route login trong `App.js`.
+- **Bài 2**: `deleteReview` trong `movie.js` với `splice` theo index.
+- **Bài 3**: `movies-list.js` — `currentPage`, `entriesPerPage`, `currentSearchMode`, `retrieveNextPage`, nút lấy trang tiếp theo.
+
+### Hoàn thành / chưa hoàn thành
+- **Đã hoàn thành**: Bài 1 → 3 theo đề Lab 6.
 - **Chưa hoàn thành**: (không).
